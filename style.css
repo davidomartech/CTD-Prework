@@ -1,0 +1,81 @@
+:root {
+  font-size: 62.5%;
+  --main-color: #00ff9f;
+}
+body {
+  font-family: "Google Sans Code", monospace;
+  background-color: black;
+}
+
+h1 {
+  font-size: 5.5rem;
+  font-weight: 400;
+  color: white;
+  text-align: center;
+  margin-top: 5rem;
+  text-transform: uppercase;
+}
+
+.glowing-text {
+  text-shadow:
+    0 0 2px white,
+    0 0 4px var(--main-color),
+    0 0 6px var(--main-color),
+    0 0 8px var(--main-color);
+}
+
+.input-container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  justify-items: center;
+  margin-top: 4rem;
+
+  .input-group {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  input {
+    flex: 1;
+    padding: 0.9rem;
+    font-size: 1.6rem;
+    outline: none;
+    background: black;
+    border: 2px solid var(--main-color);
+    color: var(--main-color);
+  }
+
+  #btn-fetch {
+    width: 250px;
+    grid-column: 1 / span 2;
+    padding: 1.6rem;
+    font-size: 1.6rem;
+    background: black;
+    border: 2px solid var(--main-color);
+    outline: none;
+    color: var(--main-color);
+    cursor: pointer;
+    margin-top: 2rem;
+  }
+
+  label {
+    color: var(--main-color);
+    font-size: 2rem;
+  }
+}
+
+.output-container {
+  max-width: 960px;
+  margin: 0 auto;
+  border: 2px solid var(--main-color);
+  margin-top: 10rem;
+  padding: 3rem;
+  font-size: 1.6rem;
+
+  color: var(--main-color);
+}

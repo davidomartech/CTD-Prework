@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vacation Time Travel Machine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1 class="glowing-text">Vacation Time Travel Machine</h1>
+    <div class="input-container">
+      <div class="input-group">
+        <label for="input-location">Destination</label>
+        <input type="text" id="input-location" autocomplete="off" />
+      </div>
+      <div class="input-group">
+        <label for="input-date">Travel Date</label>
+        <input type="date" id="input-date" autocomplete="off" />
+      </div>
+      <button id="btn-fetch">Fetch The Past</button>
+    </div>
+    <main class="output-container">
+      <p>&gt Fetch Weather For Tokyo, 2000...</p>
+      <div class="weather-info">
+        <p>&gt Location: Tokyo, Japan</p>
+        <p>&gt Date: 7/15/2000</p>
+        <p>&gt Temperature: 28.5 &#176;C</p>
+        <p>&gt Precipration: 0.0 mm</p>
+        <p>&gt Conditions: Sunny</p>
+      </div>
+      <p>&gt Fetching Packing Advice...</p>
+      <div class="packing-info">
+        <p>
+          &gt It's hot and clear! Pack light clothes, sunscreen and shades. No
+          umbrella needed.
+        </p>
+      </div>
+      <p>&gt Enjoy your vacation!</p>
+    </main>
+  </body>
+</html>
