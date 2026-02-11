@@ -16,17 +16,22 @@ async function getLocationData(destination) {
     }
 
     let data = await response.json();
-    data = data.results[0];
-    const dataObj = {
-      name: data.name,
-      country: data.country,
-      latitude: data.latitude,
-      longitude: data.longitude,
-    };
-    console.log(dataObj);
+
+    if ("results" in data) {
+      data = data.results[0];
+      const dataObj = {
+        name: data.name,
+        country: data.country,
+        latitude: data.latitude,
+        longitude: data.longitude,
+      };
+      console.log(dataObj);
+    } else {
+      throw new Error(`Could not find destination: ${destination}`);
+    }
   } catch (error) {
     console.error(error);
   }
 }
 
-getLocationData("tokyo");
+getLocationData("tokyfadsfo");
