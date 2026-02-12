@@ -40,7 +40,6 @@ const weatherCodes = {
 
 async function populateDetailsPage() {
   const data = await getWeatherData(locData, date);
-  console.log(data);
 
   let pageTemplate = `
   <p> > Min Temperature: ${data.tempMin} °C</p>

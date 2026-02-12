@@ -22,7 +22,6 @@ async function getLocationData(destination) {
       throw new Error(`Could not find destination: ${destination}`);
     }
   } catch (error) {
-    console.error(error);
     return { error: error.message };
   }
 }
@@ -39,7 +38,6 @@ async function getWeatherData(locData, date) {
 
     let data = await response.json();
     data = data.daily;
-    console.log(data);
     return {
       totalPrecipitation: data.precipitation_sum[0],
       averageHumidity: data.relative_humidity_2m_mean[0],
@@ -50,7 +48,6 @@ async function getWeatherData(locData, date) {
       maxWindSpeed: data.wind_speed_10m_max[0],
     };
   } catch (error) {
-    console.error(error);
     return { error: error.message };
   }
 }
