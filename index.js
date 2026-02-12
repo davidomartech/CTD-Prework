@@ -3,16 +3,21 @@ const destinationInput = document.getElementById("input-location");
 const dateInput = document.getElementById("input-date");
 const outputContainerEl = document.querySelector(".output-container");
 
+const todayDate = new Date().toISOString().split("T")[0];
+dateInput.setAttribute("max", todayDate);
+
 fetchBtn.addEventListener("click", (e) => {
   startTimeTravel(destinationInput.value, dateInput.value);
 });
 
 async function startTimeTravel(destination, date) {
   const locationData = await getLocationData(destination);
-  console.log(locationData);
-  const weatherData = await getWeatherData(locationData, date);
-  console.log(weatherData);
-  displayMainPageData(weatherData, locationData);
+  if ("error" in locationData) {
+    outputContainerEl.textContent = locationData.error;
+  } else {
+    const weatherData = await getWeatherData(locationData, date);
+    displayMainPageData(weatherData, locationData);
+  }
 }
 
 function displayMainPageData(weatherData, locationData) {
