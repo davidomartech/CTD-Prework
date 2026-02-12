@@ -1,6 +1,7 @@
 const fetchBtn = document.getElementById("btn-fetch");
 const destinationInput = document.getElementById("input-location");
 const dateInput = document.getElementById("input-date");
+const outputContainerEl = document.querySelector(".output-container");
 
 // prettier-ignore
 // This obj translates the weather code the API provides us with a human readable translation
@@ -101,6 +102,26 @@ async function startTimeTravel(destination, date) {
   console.log(locationData);
   const weatherData = await getWeatherData(locationData, date);
   console.log(weatherData);
+  displayMainPageData(weatherData, locationData);
 }
 
-//function displayMainPageData(weatherdata, locationData)
+function displayMainPageData(weatherData, locationData) {
+  let pEl = document.createElement("p");
+  pEl.textContent = `> Fetch Weather For ${locationData.name}...`;
+  outputContainerEl.appendChild(pEl);
+  pEl = document.createElement("p");
+  pEl.textContent = `> Location: ${locationData.name}, ${locationData.country}`;
+  outputContainerEl.appendChild(pEl);
+  pEl = document.createElement("p");
+  pEl.textContent = `> Date: ${dateInput.value}`;
+  outputContainerEl.appendChild(pEl);
+  pEl = document.createElement("p");
+  pEl.textContent = `> Temperature: ${weatherData.tempMin} °C - ${weatherData.tempMax} °C`;
+  outputContainerEl.appendChild(pEl);
+
+  let customLink = document.createElement("a");
+  customLink.textContent = "More Details...";
+  customLink.href = `details.html?lat=${locationData.latitude}&long=${locationData.longitude}&date=${dateInput.value}`;
+  customLink.classList.add("details-link");
+  outputContainerEl.appendChild(customLink);
+}
